@@ -1,17 +1,17 @@
-# [PackageDev] target_format: plist, ext: tmLanguage
-# GPSS/H syntax definition v.1.0
+%YAML 1.2
+# Sublime syntax for GPSS/H v.1.0
 ---
 name: GPSS/H
-scopeName: source.gps
-fileTypes: [gps]
-uuid: 20e50928-cc46-47dc-a86b-cd2a267f81a2
+file_extensions: [gps]
+scope: source.gps
 
-patterns:
-- match: '^(\d*) ([A-Z0-9]*) ([A-Z]*) ?([A-Z0-9\(\),]* ?(.*))'
-  captures:
-    '1': {name: comment.block.documentation.gps}
-    '2': {name: entity.name.tag.gps}
-    '3': {name: support.function.gps}
-    '4': {name: variable.parameter.gps}
-    '5': {name: comment.block.documentation.gps}
+contexts:
+  main:
+    - match: '^(\d*) ([A-Z0-9]*) ([A-Z]*) ?([A-Z0-9\(\),]* ?(.*))'
+      captures:
+        1: comment.block.documentation.gps
+        2: entity.name.tag.gps
+        3: support.function.gps
+        4: variable.parameter.gps
+        5: comment.block.documentation.gps
 ...
