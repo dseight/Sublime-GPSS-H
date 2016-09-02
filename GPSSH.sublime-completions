@@ -1,0 +1,42 @@
+{
+   "scope": "source.gps",
+
+   "completions":
+   [
+      { "trigger": "GENERATE\tA,[B,C,D,E,F,G,H,I]", "contents": "GENERATE" },
+      { "trigger": "TERMINATE\t[A]", "contents": "TERMINATE" },
+      { "trigger": "SEIZE\tA", "contents": "SEIZE" },
+      { "trigger": "RELEASE\tA", "contents": "RELEASE" },
+      { "trigger": "ENTER\tA", "contents": "ENTER" },
+      { "trigger": "QUEUE\tA,[B]", "contents": "QUEUE" },
+      { "trigger": "DEPART\tA,[B]", "contents": "DEPART" },
+      { "trigger": "ADVANCE\tA,[B]", "contents": "ADVANCE" },
+      { "trigger": "TRANSFER\t[A],B,[C]", "contents": "TRANSFER" },
+      { "trigger": "ASSIGN\tA,B,C,D", "contents": "ASSIGN" },
+      { "trigger": "PRIORITY\tA", "contents": "PRIORITY" },
+      { "trigger": "TABULATE\tA,[B]", "contents": "TABULATE" },
+      { "trigger": "SIMULATE\tno args", "contents": "SIMULATE" },
+      { "trigger": "START\tA", "contents": "START" },
+      { "trigger": "CLEAR\tno args", "contents": "CLEAR" },
+
+      { "trigger": "TEST\tX A,B,C", "contents": "TEST" },
+      { "trigger": "LOGIC\tX A", "contents": "LOGIC" },
+      { "trigger": "GATE\tX A,[B]", "contents": "GATE" },
+
+      { "trigger": "FUNCTION\tA,B,[C]", "contents": "FUNCTION" },
+      { "trigger": "INITIAL\tA/B...", "contents": "INITIAL" },
+      { "trigger": "RESET\tno args", "contents": "RESET" },
+      { "trigger": "RMULT\tA,B,C,D,...", "contents": "RMULT" },
+      { "trigger": "TABLE\tA,B,C,D,[E]", "contents": "TABLE" },
+      { "trigger": "DO\tA,B,[C]", "contents": "DO" },
+      { "trigger": "ENDDO\tno args", "contents": "DO" },
+
+      { "trigger": "INTEGER\tA,B,C,...", "contents": "INTEGER" },
+      { "trigger": "REAL\tA,B,C,...", "contents": "REAL" },
+      { "trigger": "CHAR\t*N A,B,C,...", "contents": "CHAR" },
+      { "trigger": "VCHAR\t*N A,B,C,...", "contents": "VCHAR" },
+
+      { "trigger": "OPERCOL\tA", "contents": "OPERCOL" },
+      { "trigger": "REALLOCATE\tA,B", "contents": "REALLOCATE" },
+   ]
+}
