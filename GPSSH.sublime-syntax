@@ -1,5 +1,5 @@
 %YAML 1.2
-# Sublime syntax for GPSS/H v.1.0
+# Sublime syntax for GPSS/H v.1.1
 ---
 name: GPSS/H
 file_extensions: [gps]
@@ -7,11 +7,12 @@ scope: source.gps
 
 contexts:
   main:
-    - match: '^(\d*) ([A-Z0-9]*) ([A-Z]*) ?([A-Z0-9\(\),]* ?(.*))'
+    - match: '^(\d*) ([A-Z0-9]*) ((TEST|LOGIC|GATE|CHAR|VCHAR) ([A-Z0-9\&\(\)]*)|[A-Z]*) ?([A-Z0-9\(\),]* ?(.*))'
       captures:
         1: comment.block.documentation.gps
         2: entity.name.tag.gps
         3: support.function.gps
-        4: variable.parameter.gps
-        5: comment.block.documentation.gps
+        5: variable.parameter.gps
+        6: variable.parameter.gps
+        7: comment.block.documentation.gps
 ...
