@@ -7,6 +7,8 @@ scope: source.gps
 
 contexts:
   main:
+    - match: '^\*.*'
+      scope: comment.line.character.gps
     - match: '^(\d*) ([A-Z0-9]*) ((TEST|LOGIC|GATE|CHAR|VCHAR) ([A-Z0-9\&\(\)]*)|[A-Z]*) ?([A-Z0-9\(\),]* ?(.*))'
       captures:
         1: comment.block.documentation.gps
