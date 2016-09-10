@@ -1,0 +1,4 @@
+{
+	"cmd": ["wine", "gpssh", "$file_base_name", "type"],
+	"selector": "source.gps"
+}
