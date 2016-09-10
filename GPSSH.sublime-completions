@@ -17,6 +17,7 @@
       { "trigger": "TABULATE\tA,[B]", "contents": "TABULATE" },
       { "trigger": "SIMULATE\tno args", "contents": "SIMULATE" },
       { "trigger": "START\tA", "contents": "START" },
+      { "trigger": "END\tno args", "contents": "END" },
       { "trigger": "CLEAR\tno args", "contents": "CLEAR" },
 
       { "trigger": "TEST\tX A,B,C", "contents": "TEST" },
