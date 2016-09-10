@@ -1,0 +1,11 @@
+%YAML 1.2
+# Sublime syntax for GPSS/H output
+---
+name: GPSS/H output
+scope: text.gpsout
+
+contexts:
+  main:
+    - match: '^\[.*'
+      scope: comment.line.character.gpsout
+...
