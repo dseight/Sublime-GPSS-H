@@ -1,5 +1,12 @@
 {
 	"cmd": ["wine", "gpssh", "$file_base_name", "type"],
 	"syntax": "Packages/User/GPSSH Build Output.sublime-syntax",
-	"selector": "source.gps"
+	"selector": "source.gps",
+
+	"variants": [
+		{
+			"name": "Output to file",
+			"cmd":  ["wine", "gpssh", "$file_base_name"]
+		}
+	],
 }
