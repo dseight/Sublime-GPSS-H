@@ -9,4 +9,15 @@
 			"cmd":  ["wine", "gpssh", "$file_base_name"]
 		}
 	],
+
+	"windows": {
+		"cmd": ["gpssh", "$file_base_name", "type"],
+
+		"variants": [
+			{
+				"name": "Output to file",
+				"cmd":  ["gpssh", "$file_base_name"]
+			}
+		]
+	}
 }
