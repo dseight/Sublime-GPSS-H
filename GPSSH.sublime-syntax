@@ -9,6 +9,8 @@ contexts:
   main:
     - match: '^\*.*'
       scope: comment.line.character.gps
+    - match: '^[^A-Z0-9 \t\n].*'
+      scope: invalid.illegal.gps
     - match: '^ [^ ].*'
       scope: invalid.illegal.gps
     - match: '^  +[^A-Z \t].*'
@@ -17,7 +19,6 @@ contexts:
       scope: entity.name.tag.gps
       set: label
     - match: '  +'
-      scope: support.function.gps
       set: block
 
   label:
@@ -31,7 +32,7 @@ contexts:
   block:
     - match: '$'
       set: main
-    - match: '[^A-Z].*'
+    - match: '[^A-Z \t].*'
       scope: invalid.illegal.gps
     - match: '(TEST|LOGIC|GATE|CHAR|VCHAR) *'
       scope: support.function.gps
