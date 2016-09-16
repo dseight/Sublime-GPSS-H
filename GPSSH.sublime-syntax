@@ -53,7 +53,9 @@ contexts:
   args:
     - match: '$'
       set: main
-    - match: '[^ _\*]*'
+    - match: ','
+      scope: punctuation.separator.gps
+    - match: '[^ _,\*]*'
       scope: variable.parameter.gps
     - match: ' '
       set: comment
