@@ -30,7 +30,7 @@
       { "trigger": "RMULT\tA,B,C,D,...", "contents": "RMULT" },
       { "trigger": "TABLE\tA,B,C,D,[E]", "contents": "TABLE" },
       { "trigger": "DO\tA,B,[C]", "contents": "DO" },
-      { "trigger": "ENDDO\tno args", "contents": "DO" },
+      { "trigger": "ENDDO\tno args", "contents": "ENDDO" },
 
       { "trigger": "STORAGE\tA", "contents": "STORAGE" },
       { "trigger": "SAVEVALUE\tA,B,C", "contents": "SAVEVALUE" },
