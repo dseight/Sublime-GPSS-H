@@ -1,5 +1,5 @@
 %YAML 1.2
-# Sublime syntax for GPSS/H v.2.0
+# Sublime syntax for GPSS/H v.2.1
 ---
 name: GPSS/H
 file_extensions: [gps]
@@ -53,9 +53,9 @@ contexts:
   args:
     - match: '$'
       set: main
-    - match: ','
+    - match: '[,/]'
       scope: punctuation.separator.gps
-    - match: '[^ _,\*]*'
+    - match: '[^ _,/\*]*'
       scope: variable.parameter.gps
     - match: ' '
       set: comment
