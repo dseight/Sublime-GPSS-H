@@ -32,6 +32,8 @@
       { "trigger": "DO\tA,B,[C]", "contents": "DO" },
       { "trigger": "ENDDO\tno args", "contents": "DO" },
 
+      { "trigger": "STORAGE\tA", "contents": "STORAGE" },
+      { "trigger": "SAVEVALUE\tA,B,C", "contents": "SAVEVALUE" },
       { "trigger": "INTEGER\tA,B,C,...", "contents": "INTEGER" },
       { "trigger": "REAL\tA,B,C,...", "contents": "REAL" },
       { "trigger": "CHAR\t*N A,B,C,...", "contents": "CHAR" },
