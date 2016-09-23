@@ -41,27 +41,22 @@ contexts:
       scope: support.function.gps
       set: args
 
-  # Second argument (which comes first)
   extarg:
+    - meta_scope: variable.parameter.gps
     - match: '$'
       set: main
-    - match: '[^ _\*]*'
-      scope: variable.parameter.gps
     - match: ' '
       set: args
 
   args:
+    - meta_scope: variable.parameter.gps
     - match: '$'
       set: main
-    - match: '[,/]'
-      scope: punctuation.separator.gps
-    - match: '[^ _,/\*]*'
-      scope: variable.parameter.gps
     - match: ' '
       set: comment
 
   comment:
-    - match: '.*$'
-      scope: comment.block.documentation.gps
+    - meta_scope: comment.gps
+    - match: '$'
       set: main
 ...
