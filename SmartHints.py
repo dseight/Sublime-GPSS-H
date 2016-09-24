@@ -3,28 +3,25 @@ import sublime_plugin
 import json
 
 
-# Optional argumets starts with '*'
-hints = {}
-
-resources = sublime.find_resources('gpssh_hints.json')
-
-if resources != []:
-    data = sublime.load_resource(resources[0])
-    hints = json.loads(data)
-
-
 class SmartHint(sublime_plugin.ViewEventListener):
+    
+    hints = None
 
     @classmethod
     def is_applicable(cls, settings):
-        if 'GPSSH.sublime-syntax' in settings.get('syntax'):
-            return True
-        else:
-            return False
+        return 'GPSSH.sublime-syntax' in settings.get('syntax')
 
     def __init__(self, view):
-        self.selection_end = 0
         super().__init__(view)
+
+        if self.__class__.hints is None:
+            resources = sublime.find_resources('gpssh_hints.json')
+
+            if resources != []:
+                data = sublime.load_resource(resources[0])
+                self.__class__.hints = json.loads(data)
+
+        self.selection_end = 0
 
     def on_selection_modified_async(self):
         selection_end = self.view.sel()[-1].b
@@ -61,7 +58,7 @@ class SmartHint(sublime_plugin.ViewEventListener):
         blockname = self.view.substr(blockname_region).strip()
 
         # Arguments description for current block
-        block_hints = hints.get(blockname)
+        block_hints = self.hints.get(blockname)
         if not block_hints:
             return
 
