@@ -15,14 +15,21 @@ if resources != []:
 
 class SmartHint(sublime_plugin.ViewEventListener):
 
+    @classmethod
+    def is_applicable(cls, settings):
+        if 'GPSSH.sublime-syntax' in settings.get('syntax'):
+            return True
+        else:
+            return False
+
     def on_selection_modified_async(self):
-        if not self.view.match_selector(self.view.sel()[-1].b, 'variable.parameter.gps'):
-            return
-
-        if self.view.match_selector(self.view.sel()[-1].b, 'support.function.gps'):
-            return
-
         selection_end = self.view.sel()[-1].b
+
+        if not self.view.match_selector(selection_end, 'variable.parameter.gps'):
+            return
+
+        if self.view.match_selector(selection_end, 'support.function.gps'):
+            return
 
         arg_region = self.view.extract_scope(selection_end)
         arguments = self.view.substr(arg_region)
@@ -71,5 +78,4 @@ class SmartHint(sublime_plugin.ViewEventListener):
         self.view.show_popup(
             message,
             flags=sublime.COOPERATE_WITH_AUTO_COMPLETE,
-            max_width=512,
-            location=-1)
+            max_width=512)
