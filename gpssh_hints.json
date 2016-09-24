@@ -1,0 +1,19 @@
+{
+    "ADVANCE": [
+        "*The mean time increment",
+        "*The time half-range or, if a function, the function modifier"
+    ],
+    "GENERATE": [
+        "*Mean inter generation time",
+        "*Inter generation time half-range or Function Modifier",
+        "*Start delay time",
+        "*Creation limit",
+        "*Priority level"
+    ],
+    "TRANSFER": [
+        "*Transfer Block mode",
+        "*Block number or location",
+        "*Block number or location",
+        "*Block number increment for ALL Mode"
+    ]
+}

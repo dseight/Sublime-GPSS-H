@@ -1,27 +1,17 @@
 import sublime
 import sublime_plugin
+import json
 
 
 # Optional argumets starts with '*'
-descriptions = {
-    'ADVANCE': [
-        '*The mean time increment',
-        '*The time half-range or, if a function, the function modifier'
-    ],
-    'GENERATE': [
-        '*Mean inter generation time',
-        '*Inter generation time half-range or Function Modifier',
-        '*Start delay time',
-        '*Creation limit',
-        '*Priority level'
-    ],
-    'TRANSFER': [
-        '*Transfer Block mode',
-        '*Block number or location',
-        '*Block number or location',
-        '*Block number increment for ALL Mode'
-    ]
-}
+hints = {}
+
+resources = sublime.find_resources('gpssh_hints.json')
+
+if resources != []:
+    data = sublime.load_resource(resources[0])
+    hints = json.loads(data)
+
 
 class SmartHint(sublime_plugin.ViewEventListener):
 
@@ -47,20 +37,20 @@ class SmartHint(sublime_plugin.ViewEventListener):
         blockname = self.view.substr(blockname_region).strip()
 
         # Arguments description for current block
-        block_descriptions = descriptions.get(blockname)
-        if not block_descriptions:
+        block_hints = hints.get(blockname)
+        if not block_hints:
             return
 
         # Try to get description for current argument
         try:
-            arg_description = block_descriptions[arg_number]
+            arg_hint = block_hints[arg_number]
         except IndexError:
             return
 
         # Check argument optionality
-        if arg_description[0] == '*':
+        if arg_hint[0] == '*':
             optional = True
-            arg_description = arg_description[1:]
+            arg_hint = arg_hint[1:]
         else:
             optional = False
 
@@ -68,9 +58,9 @@ class SmartHint(sublime_plugin.ViewEventListener):
         letter = chr(ord('A') + arg_number)
 
         if optional:
-            message = '<b><i>{}</i></b>: {}'.format(letter, arg_description)
+            message = '<b><i>{}</i></b>: {}'.format(letter, arg_hint)
         else:
-            message = '<b>{}</b>: {}'.format(letter, arg_description)
+            message = '<b>{}</b>: {}'.format(letter, arg_hint)
 
         self.view.show_popup(
             message,
