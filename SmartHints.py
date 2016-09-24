@@ -25,7 +25,7 @@ class SmartHint(sublime_plugin.ViewEventListener):
         selection_end = self.view.sel()[-1].b
 
         arg_region = self.view.extract_scope(selection_end)
-        arguments = self.view.substr(arg_region).strip()
+        arguments = self.view.substr(arg_region)
 
         # Offset from beginning of the arguments to cursor position
         pos = selection_end - arg_region.begin()
@@ -55,6 +55,7 @@ class SmartHint(sublime_plugin.ViewEventListener):
             optional = False
 
         # Argument identifying letter
+        # TODO: if there are any functions, ignore commas in their args
         letter = chr(ord('A') + arg_number)
 
         if optional:
