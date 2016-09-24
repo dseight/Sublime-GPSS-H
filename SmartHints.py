@@ -34,6 +34,11 @@ class SmartHint(sublime_plugin.ViewEventListener):
         arg_number = arguments.count(',', 0, pos)
 
         blockname_region = self.view.extract_scope(arg_region.a - 1)
+
+        # Properly recognize name for block with two zones of aruments (such as TEST)
+        if not self.view.match_selector(blockname_region.a, 'support.function.gps'):
+            blockname_region = self.view.extract_scope(blockname_region.a - 1)
+
         blockname = self.view.substr(blockname_region).strip()
 
         # Arguments description for current block
