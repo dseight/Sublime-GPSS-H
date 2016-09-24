@@ -34,7 +34,7 @@ class SmartHint(sublime_plugin.ViewEventListener):
         else:
             return
 
-        if self.view.match_selector(selection_end - 1, 'variable.parameter.gps'):
+        if selection_end == self.view.line(selection_end).b:
             selection_end -= 1
 
         if not self.view.match_selector(selection_end, 'variable.parameter.gps'):
