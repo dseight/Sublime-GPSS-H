@@ -22,8 +22,17 @@ class SmartHint(sublime_plugin.ViewEventListener):
         else:
             return False
 
+    def __init__(self, view):
+        self.selection_end = 0
+        super().__init__(view)
+
     def on_selection_modified_async(self):
         selection_end = self.view.sel()[-1].b
+        
+        if self.selection_end != selection_end:
+            self.selection_end = selection_end
+        else:
+            return
 
         if not self.view.match_selector(selection_end, 'variable.parameter.gps'):
             return
