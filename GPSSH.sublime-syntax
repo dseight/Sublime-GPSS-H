@@ -22,27 +22,30 @@ contexts:
       set: block
 
   label:
+    - meta_scope: entity.name.tag.gps
     - match: '$'
       set: main
-    - match: '[A-Z0-9]*'
-      scope: entity.name.tag.gps
-    - match: ' '
+    - match: ' +'
       set: block
   
   block:
+    - meta_scope: support.function.gps
     - match: '$'
       set: main
     - match: '[^A-Z \t].*'
       scope: invalid.illegal.gps
-    - match: '(TEST|LOGIC|GATE|CHAR|VCHAR) *'
-      scope: support.function.gps
-      set: extarg
-    - match: '[A-Z]+ *'
-      scope: support.function.gps
+    - match: 'TEST|LOGIC|GATE|V?CHAR'
+      set: extblock
+    - match: ' +'
       set: args
 
+  extblock:
+    - meta_scope: support.function.ext.gps
+    - match: ' '
+      set: extarg
+  
   extarg:
-    - meta_scope: variable.parameter.gps
+    - meta_scope: variable.parameter.ext.gps
     - match: '$'
       set: main
     - match: ' '
