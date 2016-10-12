@@ -41,14 +41,14 @@ contexts:
 
   extblock:
     - meta_scope: support.function.ext.gps
-    - match: ' '
+    - match: ' +'
       set: extarg
   
   extarg:
     - meta_scope: variable.parameter.ext.gps
     - match: '$'
       set: main
-    - match: ' '
+    - match: ' +'
       set: args
 
   args:
