@@ -60,7 +60,17 @@ class SmartHint(sublime_plugin.ViewEventListener):
         # Arguments description for current block
         block_hints = self.hints.get(blockname)
         if not block_hints:
-            return
+            excepted_blockname = ""
+            for name in self.hints.keys():
+                if name.find(blockname, 0, len(blockname)) != -1:
+                    if not excepted_blockname:
+                        excepted_blockname = name
+                    else:
+                        excepted_blockname = ""
+                        break
+            block_hints = self.hints.get(excepted_blockname)
+            if not block_hints:
+                return
 
         # Try to get description for current argument
         try:
