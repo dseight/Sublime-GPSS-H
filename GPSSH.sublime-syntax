@@ -36,6 +36,8 @@ contexts:
       scope: invalid.illegal.gps
     - match: 'TEST|LOGIC|GATE|V?CHAR'
       set: extblock
+    - match: 'FUNC[TION]*'
+      set: function
     - match: ' +'
       set: args
 
@@ -43,7 +45,7 @@ contexts:
     - meta_scope: support.function.ext.gps
     - match: ' +'
       set: extarg
-  
+
   extarg:
     - meta_scope: variable.parameter.ext.gps
     - match: '$'
@@ -57,6 +59,28 @@ contexts:
       set: main
     - match: ' '
       set: comment
+  
+  function:
+    - meta_scope: support.function.ext.gps
+    - match: ' +'
+      set: function_args
+
+  function_args:
+    - meta_scope: variable.parameter.gps
+    - match: '^'
+      set: function_points
+    - match: ' '
+      set: function_comment
+
+  function_comment:
+    - meta_scope: comment.gps
+    - match: '^'
+      set: function_points
+
+  function_points:
+    - meta_scope: variable.parameter.function_points.gps
+    - match: '$'
+      set: main
 
   comment:
     - meta_scope: comment.gps
