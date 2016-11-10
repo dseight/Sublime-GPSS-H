@@ -11,7 +11,7 @@
 	],
 
 	"windows": {
-		"cmd": ["gpssh", "$file_base_name", "type"],
+		"shell_cmd": "gpssh $file_base_name type source dict xref",
 
 		"variants": [
 			{
